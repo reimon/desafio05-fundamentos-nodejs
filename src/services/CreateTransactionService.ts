@@ -16,7 +16,8 @@ class CreateTransactionService {
 
   public execute({ title, value, type }: Request): Transaction {
     const { total } = this.transactionsRepository.getBalance();
-    if (!['incone', 'outcome'].includes(type)) {
+
+    if (!['income', 'outcome'].includes(type)) {
       throw new Error('Transaction type is invalid');
     }
     if (type === 'outcome' && total < value) {

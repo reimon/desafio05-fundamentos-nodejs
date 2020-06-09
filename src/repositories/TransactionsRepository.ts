@@ -48,7 +48,9 @@ class TransactionsRepository {
 
   public create({ title, value, type }: TransactionDTO): Transaction {
     const transaction = new Transaction({ title, value, type });
+
     this.transactions.push(transaction);
+
     return transaction;
   }
 }
